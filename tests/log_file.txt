@@ -1,0 +1,372 @@
+..E.FF.......FFFFFFFFF.FFFF..FFFFF.FF..FF.FFFF.
+======================================================================
+ERROR: testCorrectChangesZero (__main__.unittestWiki)
+test that model doesn't make any changes to correct word (adding and remocing character)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "UnittestWiki.py", line 15, in testCorrectChangesZero
+    self.assertEqual(0, sum(fixer.fix_text("== References ==")[1].values()))
+AttributeError: 'str' object has no attribute 'values'
+
+======================================================================
+FAIL: testDoubleErrorDeletionChange (__main__.unittestWiki)
+test double sequential errors Deletion and change
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "UnittestWiki.py", line 83, in testDoubleErrorDeletionChange
+    self.assertEqual("== References ==", fixer.fix_text("== Referzces =="))
+AssertionError: '== References ==' != '== Referzces =='
+- == References ==
+?         ^^
++ == Referzces ==
+?         ^
+
+
+======================================================================
+FAIL: testDoubleErrorInsertionChange (__main__.unittestWiki)
+test double sequential errors Insertion and Change
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "UnittestWiki.py", line 73, in testDoubleErrorInsertionChange
+    self.assertEqual("== References ==", fixer.fix_text("== Refereozces =="))
+AssertionError: '== References ==' != '== Refereozces =='
+- == References ==
+?          ^
++ == Refereozces ==
+?          ^^
+
+
+======================================================================
+FAIL: testFifthCharSwap (__main__.unittestWiki)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "UnittestWiki.py", line 136, in testFifthCharSwap
+    self.assertEqual("References", fixer.fix_text("Refeernces"))
+AssertionError: 'References' != 'Refeernces'
+- References
+?      -
++ Refeernces
+?     +
+
+
+======================================================================
+FAIL: testFirstCharChange (__main__.unittestWiki)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "UnittestWiki.py", line 139, in testFirstCharChange
+    self.assertEqual("References", fixer.fix_text("zeferences"))
+AssertionError: 'References' != 'zeferences'
+- References
+? ^
++ zeferences
+? ^
+
+
+======================================================================
+FAIL: testFirstCharDeletion (__main__.unittestWiki)
+Test deletion of first character of the text
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "UnittestWiki.py", line 88, in testFirstCharDeletion
+    self.assertEqual("References", fixer.fix_text("eferences"))
+AssertionError: 'References' != 'eferences'
+- References
+? -
++ eferences
+
+
+======================================================================
+FAIL: testFirstCharInsertion (__main__.unittestWiki)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "UnittestWiki.py", line 109, in testFirstCharInsertion
+    self.assertEqual("References", fixer.fix_text("zReferences"))
+AssertionError: 'References' != 'zReferences'
+- References
++ zReferences
+? +
+
+
+======================================================================
+FAIL: testFirstCharSwap (__main__.unittestWiki)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "UnittestWiki.py", line 124, in testFirstCharSwap
+    self.assertEqual("References", fixer.fix_text("eRferences"))
+AssertionError: 'References' != 'eRferences'
+- References
+?  -
++ eRferences
+? +
+
+
+======================================================================
+FAIL: testForthCharChange (__main__.unittestWiki)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "UnittestWiki.py", line 148, in testForthCharChange
+    self.assertEqual("References", fixer.fix_text("Refzrences"))
+AssertionError: 'References' != 'Refzrences'
+- References
+?    ^
++ Refzrences
+?    ^
+
+
+======================================================================
+FAIL: testForthCharDeletion (__main__.unittestWiki)
+Test deletion of forth character of the text
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "UnittestWiki.py", line 103, in testForthCharDeletion
+    self.assertEqual("References", fixer.fix_text("Refrences"))
+AssertionError: 'References' != 'Refrences'
+- References
+?    -
++ Refrences
+
+
+======================================================================
+FAIL: testForthCharInsertion (__main__.unittestWiki)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "UnittestWiki.py", line 118, in testForthCharInsertion
+    self.assertEqual("References", fixer.fix_text("Refzerences"))
+AssertionError: 'References' != 'Refzerences'
+- References
++ Refzerences
+?    +
+
+
+======================================================================
+FAIL: testForthCharSwap (__main__.unittestWiki)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "UnittestWiki.py", line 133, in testForthCharSwap
+    self.assertEqual("References", fixer.fix_text("Refreences"))
+AssertionError: 'References' != 'Refreences'
+- References
+?     -
++ Refreences
+?    +
+
+
+======================================================================
+FAIL: testLastCharChange (__main__.unittestWiki)
+test changing last character in the text
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "UnittestWiki.py", line 156, in testLastCharChange
+    self.assertEqual("References", fixer.fix_text("Referencez"))
+AssertionError: 'References' != 'Referencez'
+- References
+?          ^
++ Referencez
+?          ^
+
+
+======================================================================
+FAIL: testLastCharDeletion (__main__.unittestWiki)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "UnittestWiki.py", line 167, in testLastCharDeletion
+    self.assertEqual("References", fixer.fix_text("Reference"))
+AssertionError: 'References' != 'Reference'
+- References
+?          -
++ Reference
+
+
+======================================================================
+FAIL: testLastCharInsertion (__main__.unittestWiki)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "UnittestWiki.py", line 185, in testLastCharInsertion
+    self.assertEqual("References", fixer.fix_text("Referencesz"))
+AssertionError: 'References' != 'Referencesz'
+- References
++ Referencesz
+?           +
+
+
+======================================================================
+FAIL: testLastCharSwap (__main__.unittestWiki)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "UnittestWiki.py", line 176, in testLastCharSwap
+    self.assertEqual("References", fixer.fix_text("Referencse"))
+AssertionError: 'References' != 'Referencse'
+- References
+?          -
++ Referencse
+?         +
+
+
+======================================================================
+FAIL: testRandom (__main__.unittestWiki)
+testing a list of random text with noise which should be relatively easy
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "UnittestWiki.py", line 199, in testRandom
+    self.assertEqual(fixed, clean)
+AssertionError: '[[scieztific' != '[[scientific'
+- [[scieztific
+?       ^
++ [[scientific
+?       ^
+
+
+======================================================================
+FAIL: testSecondCharChange (__main__.unittestWiki)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "UnittestWiki.py", line 142, in testSecondCharChange
+    self.assertEqual("References", fixer.fix_text("Rzferences"))
+AssertionError: 'References' != 'Rzferences'
+- References
+?  ^
++ Rzferences
+?  ^
+
+
+======================================================================
+FAIL: testSecondCharDeletion (__main__.unittestWiki)
+Test deletion of second character of the text
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "UnittestWiki.py", line 93, in testSecondCharDeletion
+    self.assertEqual("References", fixer.fix_text("Rferences"))
+AssertionError: 'References' != 'Rferences'
+- References
+?  -
++ Rferences
+
+
+======================================================================
+FAIL: testSecondCharInsertion (__main__.unittestWiki)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "UnittestWiki.py", line 112, in testSecondCharInsertion
+    self.assertEqual("References", fixer.fix_text("Rzeferences"))
+AssertionError: 'References' != 'Rzeferences'
+- References
++ Rzeferences
+?  +
+
+
+======================================================================
+FAIL: testSecondCharSwap (__main__.unittestWiki)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "UnittestWiki.py", line 127, in testSecondCharSwap
+    self.assertEqual("References", fixer.fix_text("Rfeerences"))
+AssertionError: 'References' != 'Rfeerences'
+- References
+?   -
++ Rfeerences
+?  +
+
+
+======================================================================
+FAIL: testSecondToLastCharDeletion (__main__.unittestWiki)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "UnittestWiki.py", line 170, in testSecondToLastCharDeletion
+    self.assertEqual("References", fixer.fix_text("Referencs"))
+AssertionError: 'References' != 'Referencs'
+- References
+?         -
++ Referencs
+
+
+======================================================================
+FAIL: testSecondToLastCharInsertion (__main__.unittestWiki)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "UnittestWiki.py", line 188, in testSecondToLastCharInsertion
+    self.assertEqual("References", fixer.fix_text("Referencezs"))
+AssertionError: 'References' != 'Referencezs'
+- References
++ Referencezs
+?          +
+
+
+======================================================================
+FAIL: testThirdToLastCharDeletion (__main__.unittestWiki)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "UnittestWiki.py", line 173, in testThirdToLastCharDeletion
+    self.assertEqual("References", fixer.fix_text("Referenes"))
+AssertionError: 'References' != 'Referenes'
+- References
+?        -
++ Referenes
+
+
+======================================================================
+FAIL: testThirdToLastCharInsertion (__main__.unittestWiki)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "UnittestWiki.py", line 191, in testThirdToLastCharInsertion
+    self.assertEqual("References", fixer.fix_text("Referenczes"))
+AssertionError: 'References' != 'Referenczes'
+- References
++ Referenczes
+?         +
+
+
+======================================================================
+FAIL: testThridCharChange (__main__.unittestWiki)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "UnittestWiki.py", line 145, in testThridCharChange
+    self.assertEqual("References", fixer.fix_text("Rezerences"))
+AssertionError: 'References' != 'Rezerences'
+- References
+?   ^
++ Rezerences
+?   ^
+
+
+======================================================================
+FAIL: testThridCharDeletion (__main__.unittestWiki)
+Test deletion of third character of the text
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "UnittestWiki.py", line 98, in testThridCharDeletion
+    self.assertEqual("References", fixer.fix_text("Reerences"))
+AssertionError: 'References' != 'Reerences'
+- References
+?   -
++ Reerences
+
+
+======================================================================
+FAIL: testThridCharInsertion (__main__.unittestWiki)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "UnittestWiki.py", line 115, in testThridCharInsertion
+    self.assertEqual("References", fixer.fix_text("Rezferences"))
+AssertionError: 'References' != 'Rezferences'
+- References
++ Rezferences
+?   +
+
+
+======================================================================
+FAIL: testThridCharSwap (__main__.unittestWiki)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "UnittestWiki.py", line 130, in testThridCharSwap
+    self.assertEqual("References", fixer.fix_text("Reefrences"))
+AssertionError: 'References' != 'Reefrences'
+- References
+?    -
++ Reefrences
+?   +
+
+
+----------------------------------------------------------------------
+Ran 47 tests in 0.026s
+
+FAILED (failures=28, errors=1)
