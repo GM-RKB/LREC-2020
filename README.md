@@ -3,8 +3,8 @@ GM-RKBWikiText Error Correction Task goal is to benchmark systems that attempt t
 
 This repository contains three different datasets used for evaluation, two different models used to fix Wiki pages, along with different tools and test scripts.   
 ## Example: 
-- Original WikiText: `<B>Subject Headings:</B> [[Text Corpus]], [[Language Model]]`
-- WikiText with Noise: `<B>Subject Headings:<B/> [[Text Corpus]], [[Language Model]]` 
+- Original WikiText: ``<B>Subject Headings:</B> [[Text Corpus]], [[Language Model]]``
+- WikiText with Noise: ``<B>Subject Headings:<B/> [[Text Corpus]], [[Language Model]]`` 
 
 WikiText with noise is the input of the WikiFixer models. WikiFixer aims at converting the text with noise to its original (clean) form. 
 
