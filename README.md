@@ -30,6 +30,7 @@ fixer = WikiFixer()
 fixer.load_models()
 fixer.fix_text(text_noise)
 ```
+
 ```bash
 '<B>Subject Headings:</B> [[Text Corpus]], [[Language Model]]'
 ```
