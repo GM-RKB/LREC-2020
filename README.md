@@ -8,7 +8,7 @@ This repository contains three different datasets used for evaluation, two diffe
 
 WikiText with noise is the input of the WikiFixer models. WikiFixer aims at converting the text with noise to its original (clean) form. 
 
-## Usage 
+## WikiFixer Usage 
 
 ### WikiFixer MLE 
 ```python
@@ -39,18 +39,58 @@ fixer.fix_text(text_noise)
 ## Run tests
 
 ### Models Evaluation
+The repository contains code for evaluating any system used for Wiki Pages errors fixing. 
 
+- Frist the model has to be defined in `test_config.py`. A class with `fix_text` function using this system has to defined. The following code is an example to add a normal spelling correction tool as a system to be evaluated on the Wiki data [JamSpell](https://github.com/bakwc/JamSpell)
 
+```Python
+class jspell(object):
+        def __init__(self):
+                self.corrector = jamspell.TSpellCorrector()
+                self.corrector.LoadLangModel('/mnt/efs/data/en.bin')
+
+        def fix_text(self, text):
+                out = []
+                for line in text.splitlines():
+                        out.append(self.corrector.FixFragment(line))
+                return "\n".join(out)
+```              
+- Second, using the same file, the configuration of the test can be set as following 
+```python 
+    def test_models(self):
+        log_file = './output/log_file.csv' # output file
+
+        models = ["mle"] # model to be evaluated
+        datafiles = ["./Datasets/MWDump.20191001.Noisetest.parquet"] #dataset used for evaluation 
+        for datafile in datafiles:
+            for model in models:
+                 config = test_config.get_config(datafile=datafile,Model=model) #load configuraiton
+                config["sample_size"] = 100 #number of pages used in the evaluation porcess
+  
+                Emetric, score, types_stats = test_script.run_test(config)
+                l = [datafile, model, Emetric[0], Emetric[1], Emetric[2],metric[3], score]
+                with open(log_file, 'a') as csvfile:
+                    spamwriter = csv.writer(csvfile, delimiter=' ',
+                                            quotechar='|', quoting=csv.QUOTE_MINIMAL)
+                    spamwriter.writerow(l)
+```
+- third to run the test using command `python -m unittest tests.test_model` 
 ### Unit tests
+ A number of unit testing scripts are available:
+ - `test_tools` unit testing for WikiTools, which is a class containing different functions used in the process of running and evaluating different models.
+ - `test_mle` unit testing for WikiFixer MLE
+ - `test_nnet` unit testing for WikiFixer NNet
 
-## Directory Structure
+They can be run using the command `python -m unittest tests.test_tools` (this is example to run the first unit testing script).  
+ 
 
 ## Datasets
 
-### GM-RKB Datasets
+### GM-RKB Dataset
 
-### Wikipedia Datasets
+### Wikipedia Dataset
 
+## Directory Structure
 
 ```bash
 ├── WikiFixerMLE.py : WikiFixer MLE Model
