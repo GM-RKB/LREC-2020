@@ -113,11 +113,11 @@ They can be run using the command `python -m unittest tests.test_tools` (this is
 │   │   └── allowed_chars_sm.json
 │   ├── data_processing.py
 │   ├── data_vectorization.py
-│   └── models
-│       ├── gm_rkb_nnet_fixer_GMRKB&Wiki7_sm_e22.h5
-│       ├── gm_rkb_nnet_fixer_GMRKB2019_sm_e22.h5
-│       ├── gm_rkb_nnet_fixer_GMRKB_PREWiki_sm_e12.h5
-│       └── gm_rkb_nnet_fixer_Wikipedia_sm_e10.h5
+├── nnet_models
+│   ├── gm_rkb_nnet_fixer_GMRKB&Wiki7_sm_e22.h5
+│   ├── gm_rkb_nnet_fixer_GMRKB2019_sm_e22.h5
+│   ├── gm_rkb_nnet_fixer_GMRKB_PREWiki_sm_e12.h5
+│   └── gm_rkb_nnet_fixer_Wikipedia_sm_e10.h5
 ├── tests
 │   ├── log_file.txt
 │   ├── multiproc_evaluation.py
