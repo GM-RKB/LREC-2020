@@ -10,9 +10,9 @@ WikiText with noise is the input of the WikiFixer models. WikiFixer aims at conv
 
 ## WikiFixer Usage 
 ### Download Datasets and models 
-- A zip file containing the datasets files and the models of the WikiFixer can befound here (794 Megabytes): 
--- (link)[link]
--- the file should be unzipped in the same directory 
+- A zip file containing the datasets files and the models of the WikiFixer can befound here (794 Megabytes): [link](link)
+- the file should be unzipped in the same directory 
+
 ### WikiFixer MLE 
 ```python
 from WikiFixerMLE import WikiFixer
