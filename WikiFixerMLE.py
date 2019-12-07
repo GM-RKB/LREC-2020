@@ -41,6 +41,7 @@ class WikiFixer(object):
     def __init__(self, method="LM", w_th=100):
         self.w_th = w_th
         self.models = []
+        self.model_path = "./mle/model6-0.json"
 
     def rev(self, s): return s[::-1]
 
@@ -60,6 +61,8 @@ class WikiFixer(object):
         self.models.append((lm, 1.0))
 
     def load_models(self, models=[], lamb=[1.0]):
+        if models==[]:
+            models=[self.model_path]
         if len(models) != len(lamb):
             lamb = [1.0]*len(models)
         for i in range(len(models)):

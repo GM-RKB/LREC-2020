@@ -111,8 +111,3 @@ class WikiFixerNNet(object):
                     elif (seq_ind - 1) in text_test_clipped_seq_ids and d['pos'] == 0:
                         predicted = n_text
         return predicted
-
-
-wf = WikiFixerNNet()
-wf.load_model()
-print(wf.fix_text(" [[patent classiﬁcation]] is a kind of [s[upervised knowledge]] which can be leveraged. [[Training]] "))

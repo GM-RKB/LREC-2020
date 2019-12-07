@@ -14,7 +14,7 @@ class TestWikiFixerInteg(unittest.TestCase):
     def test_models(self):
         log_file = '/home/ubuntu/WikiFixer/tests/output/log_file.csv'
 
-        models = ["mle"]
+        models = ["nnet"]
         datafiles = ["/mnt/efs/data/MWDump.20191001.Noisetest.parquet"]
         for datafile in datafiles:
             for model in models:

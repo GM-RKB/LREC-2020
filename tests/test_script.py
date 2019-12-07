@@ -8,7 +8,7 @@ import errno
 import signal
 import operator
 from WikiTextTools import WikiTextTools
-from WikiFixer import WikiFixer
+from WikiFixerMLE import WikiFixer
 from tqdm import tqdm
 
 
@@ -82,6 +82,7 @@ def run_test(config={"fixer": None, "sample_size": 1000, "i1": None, "i2": None,
         original_logs2 = get_diff_log(otext, ntext)
         for log in original_logs2:
             types_stats[log["type"]]+=1
+
         try:
             ot = compare_diff_logs_timeout(original_logs, fixed_logs)
         except:

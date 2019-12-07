@@ -1,4 +1,4 @@
-from WikiFixer import WikiFixer
+from WikiFixerMLE import WikiFixer
 from tests.path import get_path
 from WikiFixerNNet import WikiFixerNNet
 import enchant
