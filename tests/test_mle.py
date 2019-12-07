@@ -1,5 +1,5 @@
 import unittest
-from WikiFixer import WikiFixer
+from WikiFixerMLE import WikiFixer
 
 
 

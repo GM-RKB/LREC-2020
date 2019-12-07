@@ -53,23 +53,13 @@ def get_config(Model,datafile):
                 fixer = WikiFixerNNet()
                 fixer.load_model()
 
-        '''
-        config = {"fixer": fixer,
-                        "sample_size": None,
-                        "i1": 0,
-                        "i2": 100,
-                        "data_file": datafile,
-                        "k": 1
-                        }
-
-        '''
         
-        config = {"fixer": fixer,
-                  "sample_size": None,
-                  "i1":None,
-                  "i2":None,
-                  "data_file":datafile,
-                  "k": 1
+        config = {"fixer": fixer, #load fixer 
+                  "sample_size": None, #set number of test samples
+                  "i1":0, #set range from i1
+                  "i2":100, # to i2
+                  "data_file":datafile, #load data file
+                  "k": None # use instances with label k=1 (not included in training)
                   }
         
         return config
