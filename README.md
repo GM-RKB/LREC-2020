@@ -1,8 +1,58 @@
 # GM-RKB WikiText Error Correction Task (LREC-2020)
+GM-RKBWikiText Error Correction Task goal is to benchmark systems that attempt to automatically detect and fix simple typographical errors in WikiText (Wiki Pages).
+
+This repository contains three different datasets used for evaluation, two different models used to fix Wiki pages, along with different tools and test scripts.   
+## Example: 
+- Original WikiText: <B>Subject Headings:</B> [[Text Corpus]], [[Language Model]]  
+- WikiText with Noise: <B>Subject Headings:<B/> [[Text Corpus]], [[Language Model]] 
+
+WikiText with noise is the input of the WikiFixer models. WikiFixer aims at converting the text with noise to its original (clean) form. 
+
+## Usage 
+
+### WikiFixer MLE 
+```python
+from WikiFixerMLE import WikiFixer
+text_noise = '[[Text Corpus]], [[Lnaguage Model]]'
+fixer = WikiFixer()
+fixer.load_models()
+fixer.fix_text(text_noise)
+```
+```bash
+'[[Text Corpus]], [[Language Model]]'
+```
+### WikiFixer NNet
+
+```python
+from WikiFixerNNet import WikiFixer
+text_noise = '<B>Subject Headings:<B/> [[Text Corpus]], [[Language Model]]'
+fixer = WikiFixer()
+fixer.load_models()
+fixer.fix_text(text_noise)
+```
+```bash
+'<B>Subject Headings:</B> [[Text Corpus]], [[Language Model]]'
+```
+
+
+## Run tests
+
+### Models Evaluation
+
+
+### Unit tests
 
 ## Directory Structure
+
+## Datasets
+
+### GM-RKB Datasets
+
+### Wikipedia Datasets
+
+
 ```bash
-├── WikiFixer.py : WikiFixer MLE Model
+├── WikiFixerMLE.py : WikiFixer MLE Model
 ├── WikiFixerNNet.py : WikiFixer NNet seq2seq Model
 ├── model_config.py :  WikiFixer NNet configuration file
 ├── requirements.txt
