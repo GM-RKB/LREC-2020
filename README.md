@@ -9,7 +9,10 @@ This repository contains three different datasets used for evaluation, two diffe
 WikiText with noise is the input of the WikiFixer models. WikiFixer aims at converting the text with noise to its original (clean) form. 
 
 ## WikiFixer Usage 
-
+### Download Datasets and models 
+- A zip file containing the datasets files and the models of the WikiFixer can befound here (794 Megabytes): 
+-- (link)[link]
+-- the file should be unzipped in the same directory 
 ### WikiFixer MLE 
 ```python
 from WikiFixerMLE import WikiFixer
