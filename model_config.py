@@ -23,7 +23,7 @@ CONFIG.allowed_threshold = .95
 # Parameters for evaluation:
 CONFIG.k = 1
 CONFIG.DATA_FILES_PATH = os.path.abspath("./nnet/data")
-CONFIG.TRAINED_FILES_PATH = os.path.abspath("./nnet/models")
+CONFIG.TRAINED_FILES_PATH = os.path.abspath("./nnet_models/")
 CONFIG.DATA_FILES_FULL_PATH = os.path.expanduser(CONFIG.DATA_FILES_PATH)
 CONFIG.TRAINED_FILES_FULL_PATH = os.path.expanduser(CONFIG.TRAINED_FILES_PATH)
 
