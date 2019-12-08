@@ -10,8 +10,9 @@ WikiText with noise is the input of the WikiFixer models. WikiFixer aims at conv
 
 ## WikiFixer Usage 
 ### Download Datasets and models 
-- A zip file containing the datasets files and the models of the WikiFixer can befound here (794 Megabytes): [link](link)
+- A zip file containing the datasets files and the models of the WikiFixer can befound here (794 Megabytes): [Download link](https://wikifixer-dl.s3.amazonaws.com/data.zip)
 - the file should be unzipped in the same directory 
+The zipped file `data.zip` contains two directories `Datasets` and `nnet_models`. The first one has the files for the 3 datasets used for training and evaluation. The second directory contains the trained models for WikiFixer NNet. 
 
 ### WikiFixer MLE 
 ```python
