@@ -9,8 +9,10 @@ This repository contains three different datasets used for evaluation, two diffe
 WikiText with noise is the input of the WikiFixer models. WikiFixer aims at converting the text with noise to its original (clean) form. 
 
 ## WikiFixer Usage 
+- The repository contains the model files for the best evaluated WikiFixer NNet and it can be used using the sample code below.
+
 ### Download Datasets and models 
-- A zip file containing the datasets files and the models of the WikiFixer can befound here (794 Megabytes): [Download link](https://wikifixer-dl.s3.amazonaws.com/data.zip)
+- A zip file containing the datasets files and all the tested models of the WikiFixer can be found here (794 Megabytes): [Download link](https://wikifixer-dl.s3.amazonaws.com/data.zip)
 - the file should be unzipped in the same directory 
 The zipped file `data.zip` contains two directories `Datasets` and `nnet_models`. The first one has the files for the 3 datasets used for training and evaluation. The second directory contains the trained models for WikiFixer NNet. 
 
@@ -45,7 +47,7 @@ fixer.fix_text(text_noise)
 ### Models Evaluation
 The repository contains code for evaluating any system used for Wiki Pages errors fixing. 
 
-- Frist the model has to be defined in `test_config.py`. A class with `fix_text` function using this system has to defined. The following code is an example to add a normal spelling correction tool as a system to be evaluated on the Wiki data [JamSpell](https://github.com/bakwc/JamSpell)
+- First the model has to be defined in `test_config.py`. A class with `fix_text` function using this system has to defined. The following code is an example to add a normal spelling correction tool as a system to be evaluated on the Wiki data [JamSpell](https://github.com/bakwc/JamSpell)
 
 ```Python
 class jspell(object):
