@@ -30,7 +30,7 @@ fixer.fix_text(text_noise)
 ### WikiFixer NNet
 
 ```python
-from WikiFixerNNet import WikiFixer
+from WikiFixerNNet import WikiFixerNNet
 text_noise = '<B>Subject Headings:<B/> [[Text Corpus]], [[Language Model]]'
 fixer = WikiFixer()
 fixer.load_models()
