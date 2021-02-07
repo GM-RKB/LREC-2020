@@ -51,9 +51,9 @@ class WikiFixer(object):
         else:
             return 0
 
-    def train_model(self, text, order=4, wi=1, add_k=0, lm={}, rightToLeft=False):
+    def train_model(self, text, order=4, wi=1, add_k=0, lm={}, rightToLeft=False,clean=False):
         lm = LanguageModel(order=order, wi=wi, add_k=add_k,
-                           lm=lm, rightToLeft=rightToLeft,clean=False)
+                           lm=lm, rightToLeft=rightToLeft)
         lm.train_char_lm(text)
         if clean:
             clean_lm, clean_lm_cn = self.clean_lm(lm)
