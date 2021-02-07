@@ -53,11 +53,12 @@ class WikiFixer(object):
 
     def train_model(self, text, order=4, wi=1, add_k=0, lm={}, rightToLeft=False):
         lm = LanguageModel(order=order, wi=wi, add_k=add_k,
-                           lm=lm, rightToLeft=rightToLeft)
+                           lm=lm, rightToLeft=rightToLeft,clean=False)
         lm.train_char_lm(text)
-        clean_lm, clean_lm_cn = self.clean_lm(lm)
-        lm.lm = clean_lm
-        lm.lm_cn = clean_lm_cn
+        if clean:
+            clean_lm, clean_lm_cn = self.clean_lm(lm)
+            lm.lm = clean_lm
+            lm.lm_cn = clean_lm_cn
         self.models.append((lm, 1.0))
 
     def load_models(self, models=[], lamb=[1.0]):
